@@ -324,7 +324,22 @@ The bar graph shows that the majority of Laureate Winners were in the USA for al
 ```
 
 4.  Create a new variable called `born_country_us` that has the value `"USA"` if the laureate is born in the US, and `"Other"` otherwise.
-    How many of the winners are born in the US?
+    How many of the winners are born in the US? **105**
+    
+```{r}
+#| label: laureate-born-US
+#| eval: true
+
+nobel_living_science <- nobel_living_science %>%
+  mutate(
+    born_country_us = if_else(born_country == "USA", "USA", "Other")
+  )
+
+count_us_born_winners <- sum(nobel_living_science$born_country_us == "USA")
+
+count_us_born_winners
+
+```
 
 5.  Add a second variable to your visualization from Exercise 3 based on whether the laureate was born in the US or not.
     Based on your visualization, do the data appear to support Buzzfeed's claim?
