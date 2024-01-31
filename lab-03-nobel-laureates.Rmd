@@ -1,5 +1,6 @@
 ---
 title: "Lab 03 - Nobel laureates"
+author: Matthew Foster
 output: 
   tufte::tufte_html:
     css: ../lab.css
@@ -209,6 +210,26 @@ You don't have to switch at each exercise, you can find your a cadence that work
 ## Get to know your data
 
 1.  How many observations and how many variables are in the dataset? Use inline code to answer this question. What does each row represent?
+
+```{r}
+#| label: num-observations-nobel
+#| eval: true
+
+num_observations <- nrow(nobel)
+
+cat("Number of observations:", num_observations, "\n")
+
+```
+
+```{r}
+#| label: num-variables-nobel
+#| eval: true
+
+num_variables <- ncol(nobel)
+
+cat("Number of variables:", num_variables, "\n")
+
+```
 
 There are some observations in this dataset that we will exclude from our analysis to match the Buzzfeed results.
 
