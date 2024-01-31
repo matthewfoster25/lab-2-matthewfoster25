@@ -239,13 +239,19 @@ There are some observations in this dataset that we will exclude from our analys
 -   laureates who are people as opposed to organizations (organizations are denoted with `"org"` as their `gender`)
 -   laureates who are still alive (their `died_date` is `NA`)
 
-```{r echo=FALSE}
+```{r}
+#| label: nobel-living-frame
+#| eval: true
+
 nobel_living <- nobel %>%
   filter(
     !is.na(country),
     gender != "org",
     is.na(died_date)
   )
+
+num_observations_nobel_living <- nrow(nobel_living)
+num_observations_nobel_living
 ```
 
 Confirm that once you have filtered for these characteristics you are left with a data frame with `r nrow(nobel_living)` observations, once again using inline code.
