@@ -298,6 +298,22 @@ This means you'll need to define this data frame in your R Markdown document, ev
     -   Your visualization should be faceted by category.
     -   For each facet you should have two bars, one for winners in the US and one for Other.
     -   Flip the coordinates so the bars are horizontal, not vertical.
+    
+```{r}
+#| label: laureate-US-relationship
+#| eval: true
+
+ggplot(nobel_living_science, aes(x = country_us, fill = country_us)) +
+    geom_bar() +
+    facet_wrap(~category, scales = "free_y", ncol = 2) +
+    coord_flip() +
+    labs(title = "Relationship Between Prize Category and Laureate Winner Location",
+         x = "Laureate Winner Location",
+         y = "Count")
+```
+
+**Interpretation:**
+The bar graph shows that the majority of Laureate Winners were in the USA for all 4 categories of Chemistry, Economics, Medicine, and Physics. However, the only bar with a resounding majority is economics. This supports the headline that immigration is important for American Science as more Chemists, Phsyisicts, and Medicinal Workers need to immigrate to America in order to have similar graphs to Economics.
 
 🧶 ✅ ⬆️ Knit, *commit, and push your changes to GitHub with an appropriate commit message. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.d*
 
