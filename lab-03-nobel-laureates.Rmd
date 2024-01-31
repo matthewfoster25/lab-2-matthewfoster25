@@ -348,6 +348,22 @@ count_us_born_winners
     -   Your final visualization should contain a facet for each category.
     -   Within each facet, there should be a bar for whether the laureate won the award in the US or not.
     -   Each bar should have segments for whether the laureate was born in the US or not.
+    
+```{r}
+#| label: laureate-US-relationship-2
+#| eval: true
+
+ggplot(nobel_living_science, aes(x = country_us, fill = born_country_us)) +
+    geom_bar() +
+    facet_wrap(~category, scales = "free_y", ncol = 2) +
+    coord_flip() +
+    labs(title = "Relationship Between Prize Category and Laureate Winner Location",
+         x = "Laureate Winner Location",
+         y = "Count")
+```
+
+**Interpretation:**
+The secondary graph, showing the immigrated Nobel winners in the US, shows that there are more winners born elsewhere then in the USA. For this reason, Buzzfeed's claim is true, immigration is important for American science.
 
 🧶 ✅ ⬆️ Knit, *commit, and push your changes to GitHub with an appropriate commit message. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*
 
